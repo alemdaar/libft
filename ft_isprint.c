@@ -6,15 +6,15 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:39:14 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/27 15:24:08 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:20:03 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int v)
+int	ft_isprint(int c)
 {
-	if (v >= 32 && v <= 126)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

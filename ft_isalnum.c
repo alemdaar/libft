@@ -6,15 +6,15 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:04:42 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/27 13:02:39 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:19:15 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int v)
+int	ft_isalnum(int c)
 {
-	if (ft_isalpha (v) == 1 || ft_isdigit (v) == 1)
+	if (ft_isalpha (c) == 1 || ft_isdigit (c) == 1)
 		return (1);
 	return (0);
 }

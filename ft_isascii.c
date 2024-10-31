@@ -6,15 +6,15 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:48:33 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/27 13:05:04 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:19:44 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int v)
+int	ft_isascii(int c)
 {
-	if (v >= 0 && v <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
