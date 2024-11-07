@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:47:56 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/27 13:01:09 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/01 22:31:15 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr;
+	char	*ptr;
 
 	if (n == 0)
 		return ;

@@ -6,63 +6,93 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:52:33 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/29 19:07:18 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:14:09 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*size_t	count_words(char const *str, char c)
+
+static void	*ft_free(char **strs, size_t count)
 {
-	int		i;
-	int		r;
-	size_t	word;
+	while (count > 0)
+		free(strs[count--]);
+	free(strs);
+	return (NULL);
+}
+
+static size_t	count_words(const char *s, char c)
+{
+	size_t	i;
+	size_t	count;
+	int		in_word;
 
 	i = 0;
-	r = 0;
-	word = 0;
-	while (str[i])
+	count = 0;
+	in_word = 0;
+	while (s[i])
 	{
-		if (str[i] == c && r == 1)
+		if (s[i] != c && !in_word)
 		{
-			word++;
-			r = 0;
+			in_word = 1;
+			count++;
 		}
-		if (str[i] != c && r == 0)
-			r = 1;
+		if (s[i] == c)
+			in_word = 0;
 		i++;
 	}
-	if (!str[i] && str[i - 1] != c)
-		word++;
+	return (count);
+}
+
+static char	*allocate_word(const char *s, size_t start, size_t end)
+{
+	char	*word;
+	size_t	i;
+
+	word = (char *)malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (start < end)
+		word[i++] = s[start++];
+	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_split_helper(const char *s, char **strings, char c)
 {
-	int		i;
-	char	**split;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	k;
+	size_t	start;
 
 	i = 0;
-	split = (char **) malloc (count_words(s, c));
-	if (!split)
-		return (NULL);
-	while (str[i] == 32 || str[i] == 9 || str[i] == 10)
-		i++;
 	k = 0;
-	while (str[i])
+	while (s[i])
 	{
-		j = 0;
-		split[k] = (char *)malloc(ft_strlen(s));
-		if (!split[k])
-			return (NULL);
-		while (str[i] != 32 && str[i] != 9 && str[i] != 10 && str[i])
-			split[k][j++] = str[i++];
-		while (str[i] == 32 || str[i] == 9 || str[i] == 10)
-			i += 1;
-		split[k][j] = '\0';
-		k += 1;
+		while (s[i] == c && s[i])
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			strings[k] = allocate_word(s, start, i);
+			if (!strings[k])
+				return (ft_free(strings, k));
+			k++;
+		}
 	}
-	split[k] = NULL;
-	return (split);
-}*/
+	strings[k] = NULL;
+	return (strings);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**strings;
+
+	if (!s)
+		return (NULL);
+	strings = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!strings)
+		return (NULL);
+	return (ft_split_helper(s, strings, c));
+}
