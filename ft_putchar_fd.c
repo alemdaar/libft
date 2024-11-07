@@ -6,8 +6,13 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:50:40 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/27 10:50:42 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/07 22:35:01 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

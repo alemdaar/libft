@@ -6,13 +6,13 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:52:06 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/07 13:36:10 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:39:06 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-v
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
 	char	*str;
