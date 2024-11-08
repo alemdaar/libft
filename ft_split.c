@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:52:33 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/07 22:49:26 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:59:33 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 
 static void	*ft_free(char **strs, size_t count)
 {
+
 	while (count > 0)
 		free(strs[count--]);
+	free(strs[0]);
 	free(strs);
 	return (NULL);
+	
+	// 	size_t i=0;
+	// while (i<count)
+	// 	free(strs[i++]);
+	// free(strs);
+	// return (NULL);
 }
 
 static size_t	count_words(const char *s, char c)
@@ -97,14 +105,15 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	return (ft_split_helper(s, strings, c));
 }
-/*int main()
-{
-	int i = 0;
-	char **strs;
-	strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
-	while (strs[i])
-	{
-		printf("%s\n", strs[i]);
-		i++;
-	}
-}*/
+// int main()
+// {
+// 	char **strs;
+// 	int i = 0;
+// 	strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
+// 	while (strs[i])
+// 	{
+// 		printf("%s\n", strs[i]);
+// 		i++;
+// 	}
+
+// }
