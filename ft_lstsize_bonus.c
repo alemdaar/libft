@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 17:20:06 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/09 13:37:23 by oelhasso         ###   ########.fr       */
+/*   Created: 2024/11/08 14:40:41 by oelhasso          #+#    #+#             */
+/*   Updated: 2024/11/10 16:23:00 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int		ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dest_len;
-	size_t	src_len;
+	int	count;
 
-	if (size == 0 && !dest)
-		return (0);
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	if (size <= dest_len)
-		return (size + src_len);
-	i = dest_len;
-	j = 0;
-	while (src[j] && i < size - 1)
-		dest[i++] = src[j++];
-	dest[i] = 0;
-	return (src_len + dest_len);
+	count = 0;
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }

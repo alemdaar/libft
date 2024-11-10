@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:52:33 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/08 11:59:33 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/09 13:36:30 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 
 static void	*ft_free(char **strs, size_t count)
 {
-
 	while (count > 0)
 		free(strs[count--]);
 	free(strs[0]);
 	free(strs);
 	return (NULL);
-	
-	// 	size_t i=0;
-	// while (i<count)
-	// 	free(strs[i++]);
-	// free(strs);
-	// return (NULL);
 }
 
 static size_t	count_words(const char *s, char c)
