@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:41:47 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/10 21:46:51 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/11 12:23:15 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*tmp;
+	t_list	*head;
+
 	if (!lst || !(*lst) || !del)
 		return ;
-	while ((*lst)->next)
+	head = *lst;
+	while (head)
 	{
-		
+		tmp = head -> next;
+		(*del)(head -> content);
+		free(head);
+		head = tmp;
 	}
-	
+	*lst = NULL;
 }
-// void	ft_lstdelone(t_list *lst, void (*del)(void *))

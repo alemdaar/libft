@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:04:06 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/04 15:34:08 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/11 15:27:33 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 	}
 	while (len-- && n)
 	{
-		str[len] = (n % 10) + '0';
+		str[len] = (n % 10) + 48;
 		n /= 10;
 	}
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:16:58 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/10/30 15:50:54 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/11 15:23:28 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (!size && (count * size) > 18446744073709551615UL)
+		return (NULL);
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 10:49:55 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/05 21:31:54 by oelhasso         ###   ########.fr       */
+/*   Created: 2024/11/11 21:27:24 by oelhasso          #+#    #+#             */
+/*   Updated: 2024/11/11 21:27:27 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*ptr;
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	cc;
 
-	ptr = (unsigned char *)s;
-	c = (unsigned char)c;
-	while (n && *ptr != c)
+	i = 0;
+	str = (unsigned char *)s;
+	cc = (unsigned char)c;
+	while (i < n)
 	{
-		++ptr;
-		--n;
+		if (str[i] == cc)
+			return ((void *)&s[i]);
+		i++;
 	}
-	if (n)
-		return (ptr);
-	else
-		return (NULL);
+	return (NULL);
 }
