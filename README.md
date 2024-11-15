@@ -1,2 +1,2 @@
-# libft1337
+# libft
 lets try this
