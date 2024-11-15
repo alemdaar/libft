@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:57:10 by oelhasso          #+#    #+#             */
-/*   Updated: 2024/11/11 15:02:47 by oelhasso         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:19:05 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 			return (-1);
 		if (sign == -1 && result > 9223372036854775807)
 			return (0);
-		result = (result * 10) + (str[i] - '0');
+		result = (result * 10) + (str[i] - 48);
 		i++;
 	}
 	return ((int)(result * sign));
