@@ -1,2 +1,0 @@
-# libft
-lets try this
